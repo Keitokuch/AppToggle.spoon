@@ -9,7 +9,7 @@ function AppToggle:new(o)
   setmetatable(o, self)
   o.name = "AppToggle"
   o.version = "0.1"
-  o.author = "keitokuch <keitokuch@gmail.com>"
+  o.author = "JC <keitokuch@gmail.com>"
   return o
 end
 
@@ -22,8 +22,8 @@ function AppToggle:setMap(app_map)
   end
 end
 
-function AppToggle:toggle_app(appName)
-  local app = hs.application.get(appName)
+function AppToggle:toggle_app(app_name)
+  local app = hs.application.get(app_name)
   if app ~= nil then
     if app:isFrontmost() then
       app:hide()
@@ -31,7 +31,7 @@ function AppToggle:toggle_app(appName)
       app:activate()
     end
   else
-    hs.application.open(appName)
+    hs.application.open(app_name)
   end
 end
 
