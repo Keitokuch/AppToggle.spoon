@@ -8,7 +8,7 @@ function AppToggle:new(o)
   self.__index = self
   setmetatable(o, self)
   o.name = "AppToggle"
-  o.version = "0.1"
+  o.version = "1.0"
   o.author = "JC <keitokuch@gmail.com>"
   return o
 end
