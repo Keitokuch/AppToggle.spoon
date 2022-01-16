@@ -1,10 +1,10 @@
 # AppToggle.spoon
-A Spoon to toggle focusing and hiding of applications with keyboard shortcuts.
+A Spoon to toggle activation and hiding of applications with keyboard shortcuts.
 
 ## Usage
 Clone this repo to any location or download AppToggle.spoon.zip from the release page.
 
-Double click the cloned repo or the unzipped .spoon file and the Spoon will be automatically loaded by Hammerspoon.
+Directly open the cloned repo or the unzipped .spoon file and the Spoon will be automatically loaded by Hammerspoon.
 
 Add your shortcut map to ~/.hammerspoon/init.lua
 
@@ -25,4 +25,4 @@ spoon.AppToggle:setMap(apps)
 ```
 Reload init.lua in Hammerspoon.
 
-With this setting, pressing `Option + c` will toggle showing and hiding of Chrome window and `Option + <space>` will toggle iTerm2 window, etc.
+With this setting, pressing `Option + c` will toggle the showing and hiding of Chrome window and `Option + <space>` will toggle iTerm2 window, etc.
