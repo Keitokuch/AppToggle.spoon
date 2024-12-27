@@ -8,8 +8,9 @@ function AppToggle:new(o)
   self.__index = self
   setmetatable(o, self)
   o.name = "AppToggle"
-  o.version = "1.0.2"
+  o.version = "1.1.0"
   o.author = "JC <keitokuch@gmail.com>"
+  o.last_app = nil
   return o
 end
 
@@ -26,12 +27,21 @@ function AppToggle:toggle_app(app_name)
   local app = hs.application.get(app_name)
   if app ~= nil then
     if app:isFrontmost() then
-      app:hide()
+      hidden = app:hide()
+      if not hidden then
+        switch_to = hs.application.get(self.last_app)
+        if switch_to:bundleID() ~= app:bundleID() then
+          switch_to:activate()
+        end 
+      end
     else
-      app:activate()
+      self.last_app = hs.application.frontmostApplication():pid()
+      app:unhide()
+      activated = app:activate()
     end
   else
-    hs.application.open(app_name)
+    self.last_app = hs.application.frontmostApplication():pid()
+    app = hs.application.open(app_name)
   end
 end
 
